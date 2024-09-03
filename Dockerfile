@@ -13,8 +13,6 @@ RUN npm install
 # Salin semua file aplikasi
 COPY . .
 
-# Pastikan skrip build memiliki izin yang benar (jika diperlukan)
-RUN chmod +x ./node_modules/.bin/webpack
 
 # Jalankan build aplikasi (misalnya menggunakan webpack atau tsc)
 RUN npm run build
