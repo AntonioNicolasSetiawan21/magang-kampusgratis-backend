@@ -15,7 +15,7 @@ COPY . .
 
 
 # Jalankan build aplikasi (misalnya menggunakan webpack atau tsc)
-RUN npm run build
+RUN npm build
 
 # Buka port yang digunakan aplikasi
 EXPOSE 8080
@@ -24,6 +24,6 @@ EXPOSE 8080
 CMD ["node", "dist/server.js"]
 
 # Jalankan  aplikasi 
-RUN npm run start
+RUN npm start
 
 
