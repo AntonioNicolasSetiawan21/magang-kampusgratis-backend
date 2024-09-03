@@ -23,7 +23,6 @@ EXPOSE 8080
 # Jalankan aplikasi
 CMD ["node", "dist/server.js"]
 
-# Jalankan  aplikasi 
-RUN npm run start
+
 
 
