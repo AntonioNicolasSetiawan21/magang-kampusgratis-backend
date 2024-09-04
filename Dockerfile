@@ -13,7 +13,6 @@ RUN npm install
 # Salin semua file aplikasi
 COPY . .
 
-
 # Jalankan build aplikasi (misalnya menggunakan webpack atau tsc)
 RUN npm build
 
@@ -22,7 +21,4 @@ EXPOSE 8080
 
 # Jalankan aplikasi
 CMD ["node", "dist/server.js"]
-
-
-
 
