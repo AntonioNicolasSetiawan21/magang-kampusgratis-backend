@@ -21,4 +21,3 @@ EXPOSE 8080
 
 # Jalankan aplikasi
 CMD ["node", "dist/server.js"]
-
