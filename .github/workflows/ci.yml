@@ -15,9 +15,9 @@ jobs:
     - uses: actions/checkout@v4
     - name: Login Dockerhub
       env:
-        davidocta154: ${{secrets.davidocta154}}
-        davidocta123: ${{secrets.davidocta123}}
-      run: docker login -u $davidocta154 -p $davidocta123
+        DOCKER_USERNAME: ${{secrets.DOCKER_USERNAME}}
+        DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
+      run: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
 
     - name: Build docker image
       run: docker build -t dimasichiro/backend-magang .
