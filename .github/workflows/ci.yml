@@ -19,20 +19,11 @@ jobs:
         password: ${{ secrets.DOCKER_PASSWORD }}
       run: echo "$password" | docker login --username "$username" --password-stdin
 
-    - name: Build and push
-        uses: docker/build-push-action@v2
-        with:
-          context: .
-          push: true
-          tags: dimasichiro/backend-magang:latest
-
-description : > 
-  (for testing)          
     - name: Build docker image
       with :
         context: .
         run: docker build -t dimasichiro/backend-magang .
     - name: Publish image to docker hub
     with:
-      context: .
+      context:
       run: docker push dimasichiro/backend-magang:latest
