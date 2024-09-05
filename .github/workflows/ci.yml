@@ -24,6 +24,6 @@ jobs:
         context: .
         run: docker build -t dimasichiro/backend-magang .
     - name: Publish image to docker hub
-    with:
-      context:
-      run: docker push dimasichiro/backend-magang:latest
+      with:
+        context: .
+        run: docker push dimasichiro/backend-magang:latest
