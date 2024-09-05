@@ -20,10 +20,6 @@ jobs:
       run: echo "$password" | docker login --username "$username" --password-stdin
 
     - name: Build docker image
-      with :
-        context: .
-        run: docker build -t dimasichiro/backend-magang .
+      run: docker build -t dimasichiro/backend-magang .
     - name: Publish image to docker hub
-      with:
-        context: .
-        run: docker push dimasichiro/backend-magang:latest
+      run: docker push dimasichiro/backend-magang:latest
