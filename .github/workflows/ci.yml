@@ -1,0 +1,25 @@
+
+name: CI Pipeline
+
+on:
+  push:
+    branches: [ "master" ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Login Dockerhub
+      env:
+        davidocta154: ${{secrets.davidocta154}}
+        davidocta123: ${{secrets.davidocta123}}
+      run: docker login -u $davidocta154 -p $davidocta123
+
+    - name: Build docker image
+      run: docker build -t dimasichiro/backend-magang .
+    - name: Publish image to docker hub
+      run: docker push dimasichiro/backend-magang:latest
