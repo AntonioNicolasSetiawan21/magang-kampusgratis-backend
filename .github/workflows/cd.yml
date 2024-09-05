@@ -7,11 +7,8 @@ on:
       - completed
 
 jobs:
-
   build:
-
     runs-on: self-hosted
-
     steps:
     - name: Delete Old docker container
       run: sudo docker rm -f backend-magang-container || true
