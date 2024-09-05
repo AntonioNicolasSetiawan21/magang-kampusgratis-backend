@@ -17,7 +17,7 @@ jobs:
       env:
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
-      run: echo "$DOCKER_PASSWORD" | docker login --username "$DOCKER_USERNAME" --password-stdin
+      run: echo "$password" | docker login --username "$username" --password-stdin
 
     - name: Build docker image
       run: docker build -t dimasichiro/backend-magang .
