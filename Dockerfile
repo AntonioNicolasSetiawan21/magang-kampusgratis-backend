@@ -20,5 +20,5 @@ RUN npm build
 EXPOSE 8080
 
 # Jalankan aplikasi
-CMD ["node", "dist/server.js"]
+# CMD ["node", "dist/server.js"]
 
