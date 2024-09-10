@@ -19,6 +19,7 @@ RUN mkdir -p dist
 # Jalankan build aplikasi (misalnya menggunakan webpack atau tsc)
 RUN npm run build
 
+
 # Salin file server.js ke direktori dist
 RUN cp server.js dist/
 
