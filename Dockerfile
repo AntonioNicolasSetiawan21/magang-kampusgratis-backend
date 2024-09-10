@@ -1,5 +1,5 @@
 # Gunakan image Node.js resmi sebagai image dasar
-FROM node:14-alpine
+FROM node:16-alpine
 
 # Tetapkan direktori kerja di dalam container
 WORKDIR /app
@@ -16,9 +16,11 @@ COPY . .
 # Buat direktori dist jika belum ada
 RUN mkdir -p dist
 
+# Install tsc globally
+RUN npm install -g typescript
+
 # Jalankan build aplikasi (misalnya menggunakan webpack atau tsc)
 RUN npm run build
-
 
 # Salin file server.js ke direktori dist
 RUN cp server.js dist/
