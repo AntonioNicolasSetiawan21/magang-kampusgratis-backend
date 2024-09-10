@@ -13,9 +13,14 @@ RUN npm install
 # Salin semua file aplikasi
 COPY . .
 
+# Buat direktori dist jika belum ada
+RUN mkdir -p dist
 
 # Jalankan build aplikasi (misalnya menggunakan webpack atau tsc)
-RUN npm build
+RUN npm run build
+
+# Salin file server.js ke direktori dist
+RUN cp server.js dist/
 
 # Buka port yang digunakan aplikasi
 EXPOSE 8080
