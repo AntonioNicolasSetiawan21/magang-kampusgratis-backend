@@ -16,8 +16,6 @@ COPY . .
 EXPOSE 8080
 
 # Jalankan build aplikasi (misalnya menggunakan webpack atau tsc)
-RUN npm user root
-RUN chown -R $USER:$USER node_modules
 RUN npm run build
 
 
