@@ -11,7 +11,7 @@ COPY package*.json ./
 RUN npm install
 
 # Install TypeScript globally
-RUN npm install -g typescript
+# RUN npm install -g typescript
 
 # Copy the rest of the application code
 COPY . .
