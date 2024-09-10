@@ -1,23 +1,28 @@
-# Use an official Node.js 14 image as a base
-FROM node:14
+# Gunakan image Node.js resmi sebagai image dasar
+FROM node:14-alpine
 
-# Set the working directory to /app
+# Tetapkan direktori kerja di dalam container
 WORKDIR /app
 
-# Copy the package*.json files
+# Salin file package.json dan package-lock.json
 COPY package*.json ./
 
-# Install dependencies
+# Install dependensi proyek
 RUN npm install
 
-# Copy the entire src directory to the working directory
-COPY src/. .
+# Salin semua file aplikasi
+COPY . .
 
-# Salin file server.js ke direktori dist
-RUN cp -r . dist/
+
+# Jalankan build aplikasi (misalnya menggunakan webpack atau tsc)
+RUN npm build
 
 # Buka port yang digunakan aplikasi
 EXPOSE 8080
 
 # Jalankan aplikasi
-CMD ["node", "dist/app.js"]
+CMD ["node", "dist/server.js"]
+
+
+
+
