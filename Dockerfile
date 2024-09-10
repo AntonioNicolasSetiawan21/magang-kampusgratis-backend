@@ -13,10 +13,12 @@ RUN npm install
 # Salin semua file aplikasi
 COPY . .
 
-EXPOSE 8080
 
 # Jalankan build aplikasi (misalnya menggunakan webpack atau tsc)
-RUN "npm run build"
+RUN npm build
 
+# Buka port yang digunakan aplikasi
+EXPOSE 8080
 
-CMD ["npm", "run", "start"]
+# Jalankan aplikasi
+CMD ["node", "dist/server.js"]
