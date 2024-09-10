@@ -16,7 +16,7 @@ COPY . .
 EXPOSE 8080
 
 # Jalankan build aplikasi (misalnya menggunakan webpack atau tsc)
-RUN npx tsc
+RUN npm run build
 
 
 CMD ["npm", "run", "start"]
