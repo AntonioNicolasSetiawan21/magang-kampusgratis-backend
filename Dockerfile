@@ -1,5 +1,5 @@
-# Example Dockerfile snippet
-FROM node:14-alpine
+# Stage 1: Build
+FROM node:16 AS builder
 
 # Set working directory
 WORKDIR /app
@@ -11,18 +11,24 @@ COPY package*.json ./
 RUN npm install
 
 # Install TypeScript globally
-# RUN npm install -g typescript
+RUN npm install -g typescript
 
-# Copy the rest of the application code
+# Copy source code
 COPY . .
 
-
 # Compile TypeScript files
-#RUN tsc
-RUN npm build
+RUN tsc
 
-# Buka port yang digunakan aplikasi
-EXPOSE 8080
+# Stage 2: Run
+FROM node:16-slim
+
+# Set working directory
+WORKDIR /app
+
+# Copy only the necessary files from the builder stage
+COPY --from=builder /app/dist /app/dist
+COPY --from=builder /app/node_modules /app/node_modules
+COPY --from=builder /app/package*.json /app/
 
 # Set the command to run your app
 CMD ["node", "dist/server.js"]
