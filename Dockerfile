@@ -1,5 +1,5 @@
 # Gunakan image Node.js resmi sebagai image dasar
-FROM node:18-alpine
+FROM node:14-alpine
 
 # Tetapkan direktori kerja di dalam container
 WORKDIR /app
@@ -16,7 +16,7 @@ COPY . .
 EXPOSE 8080
 
 # Jalankan build aplikasi (misalnya menggunakan webpack atau tsc)
-RUN bash -c "npm run build"
+RUN "npm run build"
 
 
 CMD ["npm", "run", "start"]

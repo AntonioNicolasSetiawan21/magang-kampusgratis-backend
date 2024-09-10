@@ -16,7 +16,7 @@ jobs:
         run: docker build   
  . -t dimasichiro/backend-kampusgratis:v1.0
       - name: Push image to Docker Hub
-        run: docker push your-username/your-image:latest
+        run: docker push dimasichiro/backend-magang:latest
 
     env:
       DOCKER_HUB_USERNAME: ${{ secrets.DOCKER_USERNAME }}
