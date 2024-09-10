@@ -23,10 +23,10 @@ RUN npm install -g typescript
 RUN npm run build
 
 # Salin file server.js ke direktori dist
-RUN cp server.js dist/
+RUN cp index.js dist/
 
 # Buka port yang digunakan aplikasi
 EXPOSE 8080
 
 # Jalankan aplikasi
-CMD ["node", "dist/server.js"]
+CMD ["node", "dist/index.js"]
