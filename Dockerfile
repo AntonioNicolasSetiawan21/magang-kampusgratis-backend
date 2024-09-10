@@ -1,5 +1,5 @@
 # Gunakan image Node.js resmi sebagai image dasar
-FROM node:14-alpine
+FROM node:18-alpine
 
 # Tetapkan direktori kerja di dalam container
 WORKDIR /app
@@ -14,7 +14,7 @@ RUN npm install
 COPY . .
 
 # Jalankan build aplikasi (misalnya menggunakan webpack atau tsc)
-RUN npm run build
+RUN npm  build
 
 # Buka port yang digunakan aplikasi
 EXPOSE 8080
