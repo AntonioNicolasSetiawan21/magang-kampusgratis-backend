@@ -1,5 +1,5 @@
 # Example Dockerfile snippet
-FROM node:16
+FROM node:14-alpine
 
 # Set working directory
 WORKDIR /app
