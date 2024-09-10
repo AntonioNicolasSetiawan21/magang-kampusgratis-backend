@@ -1,28 +1,23 @@
-# Gunakan image Node.js resmi sebagai image dasar
-FROM node:14-alpine
+# Example Dockerfile snippet
+FROM node:16
 
-# Tetapkan direktori kerja di dalam container
+# Set working directory
 WORKDIR /app
 
-# Salin file package.json dan package-lock.json
+# Copy package.json and package-lock.json
 COPY package*.json ./
 
-# Install dependensi proyek
+# Install dependencies
 RUN npm install
 
-# Salin semua file aplikasi
+# Install TypeScript globally
+RUN npm install -g typescript
+
+# Copy the rest of the application code
 COPY . .
 
+# Compile TypeScript files
+RUN tsc
 
-# Jalankan build aplikasi (misalnya menggunakan webpack atau tsc)
-RUN npm build
-
-# Buka port yang digunakan aplikasi
-EXPOSE 8080
-
-# Jalankan aplikasi
+# Set the command to run your app
 CMD ["node", "dist/server.js"]
-
-
-
-
