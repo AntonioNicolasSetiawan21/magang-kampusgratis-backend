@@ -1,23 +1,22 @@
-# Use a valid Node.js image
+# Gunakan image Node.js resmi sebagai image dasar
 FROM node:18-alpine
 
-# Set the working directory in the container
+# Tetapkan direktori kerja di dalam container
 WORKDIR /app
 
-# Copy package.json and package-lock.json
+# Salin file package.json dan package-lock.json
 COPY package*.json ./
 
-# Install project dependencies
+# Install dependensi proyek
 RUN npm install
 
-# Copy all application files
+# Salin semua file aplikasi
 COPY . .
 
-# Run the build script (ensure 'build' is defined in package.json)
-RUN npm run build
-
-# Expose the port the app runs on
 EXPOSE 8080
 
-# Run the application (update path based on actual build output)
-CMD ["node", "dist/server.js"]
+# Jalankan build aplikasi (misalnya menggunakan webpack atau tsc)
+RUN npx tsc
+
+
+CMD ["npm", "run", "start"]
