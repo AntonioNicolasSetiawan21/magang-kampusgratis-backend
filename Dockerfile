@@ -17,7 +17,8 @@ RUN npm install
 COPY . .
 
 # Compile TypeScript files
-RUN tsc
+#RUN tsc
+RUN npm build
 
 # Set the command to run your app
 CMD ["node", "dist/server.js"]
