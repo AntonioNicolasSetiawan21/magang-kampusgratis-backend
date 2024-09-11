@@ -30,5 +30,7 @@ RUN tsc
 #COPY --from=builder /app/node_modules /app/node_modules
 #COPY --from=builder /app/package*.json /app/
 
+EXPOSE 500
+
 # Set the command to run your app
 CMD ["node", "dist/server.js"]

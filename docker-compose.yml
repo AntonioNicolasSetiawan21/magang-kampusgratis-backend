@@ -1,5 +1,9 @@
 version: '3.8'
 services:
+  backend-magang:
+    image: dimasichiro/backend-magang
+    ports:
+      - "500:500"
   prometheus:
     image: prom/prometheus:latest
     volumes:
