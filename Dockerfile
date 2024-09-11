@@ -16,7 +16,7 @@ RUN npm install -g typescript
 # Copy source code
 COPY . .
 
-# Compile TypeScript files
+#  Compile TypeScript files
 RUN tsc
 
 # Stage 2: Run
