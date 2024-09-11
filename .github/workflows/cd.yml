@@ -13,6 +13,11 @@ jobs:
     runs-on: self-hosted
 
     steps:
+    - name: Log in to Docker Hub
+      run: echo "$DOCKER_PASSWORD" | sudo docker login -u "$DOCKER_USERNAME" --password-stdin
+      env:
+        DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+        DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
     - name: Pull Docker image
       run: sudo docker pull dimasichiro/backend-magang
     - name: Delete Old docker container
